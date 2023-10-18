@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { myContext } from '../MainWithFunc';
 import {AiOutlineHome,AiOutlineAppstoreAdd,AiOutlineShoppingCart} from 'react-icons/ai'
-import {BsSun} from 'react-icons/bs'
 
 
 
@@ -11,7 +10,6 @@ const Nav = () => {
 
     const context = useContext(myContext);
     const { user, logOut,isLoding } = context;
-    const Navigate = useNavigate();
     const [theme,setTheme]=useState('light')
 
     useEffect(()=>{
@@ -135,7 +133,7 @@ const navcontent_md = <>
                         </div>
                     </label>
                     <ul tabIndex={0} className="mt-3 z-40 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                        <li><button onClick={() => { Navigate('/dashboard') }}>{user?.displayName}</button></li>
+                        <li><button>{user?.displayName}</button></li>
                         <li><button onClick={logOut}>Logout</button></li>
                     </ul>
                 </div> : <Link to={'/login'}><button className="btn md:hidden">Login</button></Link>}
