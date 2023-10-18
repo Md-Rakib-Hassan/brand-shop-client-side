@@ -73,7 +73,9 @@ const navcontent_md = <>
                 </div>
 
                 <NavLink to={'/'}>
-                    <span className='lg:text-3xl md:text-2xl hidden md:inline-block font-bold'>Kroy Tech</span>
+                    <div className='flex gap-2'><img className='md:w-6 lg:w-8 hidden md:inline-block' src="logo.png" alt="" />
+                    <span className='lg:text-3xl md:text-2xl hidden md:inline-block font-bold'>Kroy Tech</span></div>
+                
                 </NavLink>
 
             </div>
