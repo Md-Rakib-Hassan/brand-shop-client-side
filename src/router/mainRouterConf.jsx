@@ -8,12 +8,14 @@ import Registration from "../pages/Registration";
 import Carts from "../pages/Carts";
 import AddProducts from "../pages/AddProducts";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../pages/Error"
 
 
 const mainRouterConf = createBrowserRouter(
     [{
         path: '/',
         element: <Root></Root>,
+        errorElement:<Error></Error>,
         children: [
             {
                 path: '/',
