@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import Error from "../pages/Error"
 import ProductsBrand from "../pages/ProductsBrand";
 import ProductDetails from "../pages/ProductDetails";
+import UpdateProduct from "../pages/UpdateProduct";
 
 
 const mainRouterConf = createBrowserRouter(
@@ -46,7 +47,13 @@ const mainRouterConf = createBrowserRouter(
             },
             {
                 path:'/product/:productId',
+                loader:({params})=>fetch(`http://localhost:5000/product/${params.productId}`),
                 element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+            },
+            {
+                path:'/updateProduct/:productId',
+                loader:({params})=>fetch(`http://localhost:5000/product/${params.productId}`),
+                element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
             }
         ]
     }

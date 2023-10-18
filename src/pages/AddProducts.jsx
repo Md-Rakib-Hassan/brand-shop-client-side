@@ -14,6 +14,21 @@ const AddProducts = () => {
         const types = form.sel.value;
         const details = form.details.value;
 
+        if(!rating){
+            Swal.fire('Rating Missing', `Give the Product rating please`, 'error')
+            return
+
+        }
+        else if(BrandName=='Select Brand Name'){
+            Swal.fire('Brand Name Missing', `Select the Product Brand Name please`, 'error')
+            return
+        }
+
+        else if(types=='Product Catagory / Types'){
+            Swal.fire('Product Catagory / Types Missing', `Select the Product Product Catagory / Types please`, 'error')
+            return
+        }
+
         const productInfo = { ProductName, BrandName, productPrice, url, rating, types, details };
 
         fetch('http://localhost:5000/add-products', {
@@ -45,7 +60,7 @@ const AddProducts = () => {
                         <label className="label">
                             <span className="label-text">What is the Product name?</span>
                         </label>
-                        <input type="text" placeholder="Product name" name='productName' className="input input-bordered w-full max-w-xs" />
+                        <input type="text" required placeholder="Product name" name='productName' className="input input-bordered w-full max-w-xs" />
 
                     </div>
 
@@ -54,7 +69,7 @@ const AddProducts = () => {
                         <label className="label">
                             <span className="label-text">Product Price</span>
                         </label>
-                        <input type="text" placeholder="Price" name='productPrice' className="input input-bordered w-full max-w-xs" />
+                        <input type="number" required placeholder="Price" name='productPrice' className="input input-bordered w-full max-w-xs" />
 
                     </div>
 
@@ -65,7 +80,7 @@ const AddProducts = () => {
                         <label className="label">
                             <span className="label-text">Product Image URL</span>
                         </label>
-                        <input type="text" placeholder="URL" name='url' className="input input-bordered w-full max-w-xs" />
+                        <input type="text" required placeholder="URL" name='url' className="input input-bordered w-full max-w-xs" />
 
                     </div>
 
@@ -76,7 +91,7 @@ const AddProducts = () => {
 
                     <div className='mt-8'>
 
-                        <select name='brandName' className="select select-ghost w-full max-w-xs outline-1">
+                        <select required name='brandName' className="select select-ghost w-full max-w-xs outline-1">
                             <option disabled selected>Select Brand Name</option>
                             <option>Apple</option>
                             <option>Xiaomi</option>
@@ -101,14 +116,14 @@ const AddProducts = () => {
                             <input type="radio" name="rating6" value={2} className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating6" value={3} className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating6" value={4} className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating6" value={5} className="mask mask-star-2 bg-orange-400" />
+                            <input type="radio" name="rating6"  value={5} className="mask mask-star-2 bg-orange-400" />
                         </div>
 
                     </div>
 
                     <div className='mt-2'>
 
-                        <select name='sel' className="select select-ghost w-full max-w-xs">
+                        <select name='sel' required className="select select-ghost w-full max-w-xs">
                             <option disabled selected>Product Catagory / Types</option>
                             <option>Mobile</option>
                             <option>Tablet</option>
@@ -127,7 +142,7 @@ const AddProducts = () => {
                         <span className="label-text">Product Details:</span>
 
                     </label>
-                    <textarea name='details' className="textarea textarea-bordered h-24" placeholder="Product Details"></textarea>
+                    <textarea required name='details' className="textarea textarea-bordered h-24" placeholder="Product Details"></textarea>
                 </div>
 
                 <div className='flex justify-center'><input className='btn mt-4 mx-auto' type="submit" value="Add Product" /></div>

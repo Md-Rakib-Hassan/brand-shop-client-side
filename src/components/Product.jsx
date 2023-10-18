@@ -28,7 +28,7 @@ const Product = ({ product }) => {
                 </div>
                 <div className='flex justify-around gap-5'>
                     <Link to={`/product/${product?._id}`}><button className='btn '>Details</button></Link>
-                    <Link><button className='btn'>Update</button></Link>
+                    <Link to={`/updateProduct/${product?._id}`}><button className='btn'>Update</button></Link>
                     
                 </div>
             </div>
