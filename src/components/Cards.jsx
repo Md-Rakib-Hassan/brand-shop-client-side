@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
+import { Link } from 'react-router-dom';
 
 const Cards = () => {
     const [brands, setBrands] = useState([]);
@@ -19,7 +20,7 @@ const Cards = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-5'>
 
-                {brands.map(br => <Card key={br._id} br={br}></Card>)}
+                {brands.map(br =><Link key={br._id} to={`/${br.brandName}`}> <Card   br={br}></Card> </Link> )}
 
 
             </div>

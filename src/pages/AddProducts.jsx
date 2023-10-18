@@ -1,30 +1,31 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddProducts = () => {
 
-    const handleSubmit=(e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const form=e.target;
-        const ProductName=form.productName.value;
-        const BrandName=form.brandName.value;
-        const productPrice=form.productPrice.value;
-        const url=form.url.value;
-        const rating=form.rating6.value;
-        const types=form.sel.value;
-        const details=form.details.value;
+        const form = e.target;
+        const ProductName = form.productName.value;
+        const BrandName = form.brandName.value;
+        const productPrice = form.productPrice.value;
+        const url = form.url.value;
+        const rating = form.rating6.value;
+        const types = form.sel.value;
+        const details = form.details.value;
 
-        const productInfo={ProductName, BrandName, productPrice, url, rating, types, details};
+        const productInfo = { ProductName, BrandName, productPrice, url, rating, types, details };
 
-        fetch('http://localhost:5000/add-products',{
+        fetch('http://localhost:5000/add-products', {
             method: 'POST',
-            headers:{'content-type': 'application/json'},
+            headers: { 'content-type': 'application/json' },
             body: JSON.stringify(productInfo),
         })
-        .then(res=>res.json())
-        .then(data=>console.log(data))
+            .then(res => res.json())
+            .then(data => data.acknowledged ? Swal.fire('Added', 'You successfully added the product.', 'success') : Swal.fire('Error', `Something gone wrong.`, 'error'))
 
-        console.log(productInfo);
-        
+       
+
 
 
     }
@@ -48,17 +49,6 @@ const AddProducts = () => {
 
                     </div>
 
-
-                    <div>
-
-                        <label className="label">
-                            <span className="label-text">What is the Brand name?</span>
-                        </label>
-                        <input type="text" placeholder="Brand name" name='brandName' className="input input-bordered w-full max-w-xs" />
-
-                    </div>
-
-
                     <div>
 
                         <label className="label">
@@ -69,6 +59,7 @@ const AddProducts = () => {
                     </div>
 
 
+
                     <div>
 
                         <label className="label">
@@ -77,6 +68,28 @@ const AddProducts = () => {
                         <input type="text" placeholder="URL" name='url' className="input input-bordered w-full max-w-xs" />
 
                     </div>
+
+
+
+
+
+
+                    <div className='mt-8'>
+
+                        <select name='brandName' className="select select-ghost w-full max-w-xs outline-1">
+                            <option disabled selected>Select Brand Name</option>
+                            <option>Apple</option>
+                            <option>Xiaomi</option>
+                            <option>Samsung</option>
+                            <option>Microsoft</option>
+                            <option>Walton</option>
+                            <option>Realme</option>
+                        </select>
+
+                    </div>
+
+
+
 
                     <div>
 
@@ -98,7 +111,7 @@ const AddProducts = () => {
                         <select name='sel' className="select select-ghost w-full max-w-xs">
                             <option disabled selected>Product Catagory / Types</option>
                             <option>Mobile</option>
-                            <option>Teblet</option>
+                            <option>Tablet</option>
                             <option>Leptop</option>
                             <option>Headphone</option>
                             <option>Monitor</option>
@@ -112,14 +125,14 @@ const AddProducts = () => {
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Product Details:</span>
-  
+
                     </label>
                     <textarea name='details' className="textarea textarea-bordered h-24" placeholder="Product Details"></textarea>
                 </div>
 
                 <div className='flex justify-center'><input className='btn mt-4 mx-auto' type="submit" value="Add Product" /></div>
 
-                
+
 
 
             </form>

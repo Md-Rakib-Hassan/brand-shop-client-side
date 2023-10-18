@@ -8,7 +8,7 @@ const MainWithFunc = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [isLoding, setIsLoding] = useState(true);
-
+    const [brands, setBrands] = useState([]);
 
 
 
@@ -25,6 +25,13 @@ const MainWithFunc = ({ children }) => {
         setIsLoding(true)
         return signInWithPopup(auth, provider)
     }
+    
+    useEffect(() => {
+        setIsLoding(true)
+        fetch('http://localhost:5000/brands')
+            .then(res => res.json())
+            .then(data => setBrands(data));
+    }, []);
 
     useEffect(() => {
 
@@ -49,6 +56,11 @@ const MainWithFunc = ({ children }) => {
     }
 
 
+  
+
+
+
+
 
 
 
@@ -60,6 +72,8 @@ const MainWithFunc = ({ children }) => {
         logOut,
         isLoding,
         auth,
+        brands,
+
     }
 
     return (
