@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import Carts from "../pages/Carts";
 import AddProducts from "../pages/AddProducts";
+import PrivateRoute from "./PrivateRoute";
 
 
 const mainRouterConf = createBrowserRouter(
@@ -28,11 +29,11 @@ const mainRouterConf = createBrowserRouter(
             },
             {
                 path:'/carts',
-                element: <Carts></Carts>,
+                element:<PrivateRoute><Carts></Carts></PrivateRoute> ,
             },
             {
                 path:'/add-products',
-                element: <AddProducts></AddProducts>,
+                element:<PrivateRoute><AddProducts></AddProducts></PrivateRoute> ,
             },
         ]
     }
