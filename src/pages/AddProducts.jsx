@@ -31,13 +31,16 @@ const AddProducts = () => {
 
         const productInfo = { ProductName, BrandName, productPrice, url, rating, types, details };
 
-        fetch('http://localhost:5000/add-products', {
+        fetch('https://server-site-9ainxube8-md-rakib-hassans-projects.vercel.app/add-products', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(productInfo),
         })
             .then(res => res.json())
-            .then(data => data.acknowledged ? Swal.fire('Added', 'You successfully added the product.', 'success') : Swal.fire('Error', `Something gone wrong.`, 'error'))
+            .then(data => {data.acknowledged ? Swal.fire('Added', 'You successfully added the product.', 'success') : Swal.fire('Error', `Something gone wrong.`, 'error')
+            return form.reset();
+        
+        })
 
        
 

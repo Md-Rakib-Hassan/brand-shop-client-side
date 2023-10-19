@@ -9,7 +9,7 @@ const Carts = () => {
     const email = user?.email;
     const [cartItems, setCartItems] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/cart/${email}`)
+        fetch(`https://server-site-9ainxube8-md-rakib-hassans-projects.vercel.app/cart/${email}`)
             .then(res => res.json())
             .then(data => setCartItems(data));
     })

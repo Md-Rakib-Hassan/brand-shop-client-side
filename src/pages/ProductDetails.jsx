@@ -23,7 +23,7 @@ const ProductDetails = () => {
     const handleAddtoCart=()=>{
         console.log(cartProduct);
        
-        fetch('http://localhost:5000/cart', {
+        fetch('https://server-site-9ainxube8-md-rakib-hassans-projects.vercel.app/cart', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(cartProduct),

@@ -42,17 +42,17 @@ const mainRouterConf = createBrowserRouter(
             },
             {
                 path:'/:brand',
-                loader:({params})=>fetch(`http://localhost:5000/${params.brand}`),
+                loader:({params})=>fetch(`https://server-site-9ainxube8-md-rakib-hassans-projects.vercel.app/${params.brand}`),
                 element:<ProductsBrand></ProductsBrand>,
             },
             {
                 path:'/product/:productId',
-                loader:({params})=>fetch(`http://localhost:5000/product/${params.productId}`),
+                loader:({params})=>fetch(`https://server-site-9ainxube8-md-rakib-hassans-projects.vercel.app/product/${params.productId}`),
                 element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
             },
             {
                 path:'/updateProduct/:productId',
-                loader:({params})=>fetch(`http://localhost:5000/product/${params.productId}`),
+                loader:({params})=>fetch(`https://server-site-9ainxube8-md-rakib-hassans-projects.vercel.app/product/${params.productId}`),
                 element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
             }
         ]
