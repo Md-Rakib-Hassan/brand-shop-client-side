@@ -95,7 +95,7 @@ const AddProducts = () => {
                     <div className='mt-8'>
 
                         <select required name='brandName' className="select select-ghost w-full max-w-xs outline-1">
-                            <option disabled selected>Select Brand Name</option>
+                            <option>Select Brand Name</option>
                             <option>Apple</option>
                             <option>Xiaomi</option>
                             <option>Samsung</option>
@@ -127,7 +127,7 @@ const AddProducts = () => {
                     <div className='mt-2'>
 
                         <select name='sel' required className="select select-ghost w-full max-w-xs">
-                            <option disabled selected>Product Catagory / Types</option>
+                            <option >Product Catagory / Types</option>
                             <option>Mobile</option>
                             <option>Tablet</option>
                             <option>Leptop</option>
