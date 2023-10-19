@@ -62,7 +62,7 @@ const UpdateProduct = () => {
                     <label className="label">
                         <span className="label-text">What is the Product name?</span>
                     </label>
-                    <input type="text" required placeholder="Product name" value={product.ProductName} name='productName' className="input input-bordered w-full max-w-xs" />
+                    <input type="text" required placeholder="Product name" defaultValue={product.ProductName} name='productName' className="input input-bordered w-full max-w-xs" />
 
                 </div>
 
@@ -71,7 +71,7 @@ const UpdateProduct = () => {
                     <label className="label">
                         <span className="label-text">Product Price</span>
                     </label>
-                    <input type="number" value={product.productPrice} required placeholder="Price" name='productPrice' className="input input-bordered w-full max-w-xs" />
+                    <input type="number" defaultValue={product.productPrice} required placeholder="Price" name='productPrice' className="input input-bordered w-full max-w-xs" />
 
                 </div>
 
@@ -82,7 +82,7 @@ const UpdateProduct = () => {
                     <label className="label">
                         <span className="label-text">Product Image URL</span>
                     </label>
-                    <input type="text" value={product.url} required placeholder="URL" name='url' className="input input-bordered w-full max-w-xs" />
+                    <input type="text" defaultValue={product.url} required placeholder="URL" name='url' className="input input-bordered w-full max-w-xs" />
 
                 </div>
 
@@ -93,7 +93,7 @@ const UpdateProduct = () => {
 
                 <div className='mt-8'>
 
-                    <select required name='brandName' value={product.BrandName} className="select select-ghost w-full max-w-xs outline-1">
+                    <select required name='brandName' defaultValue={product.BrandName} className="select select-ghost w-full max-w-xs outline-1">
                         <option disabled selected>Select Brand Name</option>
                         <option>Apple</option>
                         <option>Xiaomi</option>
@@ -114,18 +114,18 @@ const UpdateProduct = () => {
                         <span className="label-text">Product Rating</span>
                     </label>
                     <div className="rating rating-md">
-                        <input type="radio" name="rating6" value={1} className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating6" value={2} className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating6" value={3} className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating6" value={4} className="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating6"  value={5} className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating6" defaultChecked={product.rating==1} value={1} className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating6" defaultChecked={product.rating==2} value={2} className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating6" defaultChecked={product.rating==3} value={3} className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating6" defaultChecked={product.rating==4} value={4} className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating6" defaultChecked={product.rating==5}  value={5} className="mask mask-star-2 bg-orange-400" />
                     </div>
 
                 </div>
 
                 <div className='mt-2'>
 
-                    <select name='sel' value={product.types} required className="select select-ghost w-full max-w-xs">
+                    <select name='sel' defaultValue={product.types} required className="select select-ghost w-full max-w-xs">
                         <option disabled selected>Product Catagory / Types</option>
                         <option>Mobile</option>
                         <option>Tablet</option>
@@ -144,7 +144,7 @@ const UpdateProduct = () => {
                     <span className="label-text">Product Details:</span>
 
                 </label>
-                <textarea required value={product.details} name='details' className="textarea textarea-bordered h-24" placeholder="Product Details"></textarea>
+                <textarea required defaultValue={product.details} name='details' className="textarea textarea-bordered h-24" placeholder="Product Details"></textarea>
             </div>
 
             <div className='flex justify-center'><input className='btn mt-4 mx-auto' type="submit" value="Update Product" /></div>
